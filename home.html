@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Writely - Home</title>
+    <link rel="stylesheet" href="app.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Page Loader -->
+    <div class="page-loader" id="pageLoader">
+        <div class="loader-circle"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="app-header">
+        <div class="header-top">
+            <div class="location-info" id="locationBtn">
+                <div class="icon-wrap"><i class="fas fa-location-dot"></i></div>
+                <div class="location-text">
+                    <div class="label">Deliver to</div>
+                    <div class="value" id="locationText">Detecting location... <i class="fas fa-chevron-down" style="font-size:10px;"></i></div>
+                </div>
+            </div>
+            <div class="user-avatar" id="userAvatar" onclick="window.location.href='settings.html'">U</div>
+        </div>
+        <div class="search-bar">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Search assignments, records, projects..." id="searchInput">
+        </div>
+    </header>
+
+    <!-- Hero Banner -->
+    <div class="hero-banner">
+        <h2>Get Your Writing Done <span class="emoji">✍️</span></h2>
+        <p>Professional handwritten assignments, records & more — delivered to your door!</p>
+    </div>
+
+    <!-- Categories -->
+    <div class="section-header">
+        <h3>Categories</h3>
+    </div>
+    <div class="categories" id="categories">
+        <div class="category-chip active" data-cat="all">🎯 All</div>
+        <div class="category-chip" data-cat="assignment">📚 Assignments</div>
+        <div class="category-chip" data-cat="record">📋 Records</div>
+        <div class="category-chip" data-cat="project">📁 Projects</div>
+        <div class="category-chip" data-cat="essay">✍️ Essays</div>
+        <div class="category-chip" data-cat="notes">📝 Notes</div>
+    </div>
+
+    <!-- Writings List -->
+    <div class="section-header">
+        <h3>Top Picks for You</h3>
+        <a href="#" class="see-all">See all</a>
+    </div>
+
+    <div class="writings-grid" id="writingsGrid">
+        <!-- Cards rendered dynamically -->
+    </div>
+
+    <!-- Location Modal -->
+    <div class="modal-overlay" id="locationModal">
+        <div class="modal">
+            <div class="modal-handle"></div>
+            <h3>📍 Set Your Location</h3>
+            <p style="font-size:14px;color:var(--text-light);margin-bottom:16px;">We need your location to deliver writings to you</p>
+            <button class="btn-primary" id="useGPS" style="width:100%;margin-bottom:12px;">
+                <i class="fas fa-location-crosshairs"></i> Use Current Location
+            </button>
+            <input type="text" id="manualAddress" placeholder="Or enter address manually" 
+                style="width:100%;padding:14px;border:2px solid var(--border);border-radius:12px;font-family:inherit;margin-bottom:12px;">
+            <button class="btn-outline" id="saveManual" style="width:100%;">Save Address</button>
+        </div>
+    </div>
+
+    <!-- Bottom Nav -->
+    <nav class="bottom-nav">
+        <a href="home.html" class="nav-item active"><i class="fas fa-house"></i><span>Home</span></a>
+        <a href="orders.html" class="nav-item"><i class="fas fa-bag-shopping"></i><span>Orders</span></a>
+        <a href="favorites.html" class="nav-item"><i class="fas fa-heart"></i><span>Favorites</span></a>
+        <a href="settings.html" class="nav-item"><i class="fas fa-gear"></i><span>Settings</span></a>
+    </nav>
+
+    <!-- Toast -->
+    <div class="toast" id="toast"></div>
+
+    <script type="module" src="./firebase-config.js"></script>
+    <script type="module" src="./home.js"></script>
+</body>
+</html>
